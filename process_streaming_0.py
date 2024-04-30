@@ -68,6 +68,11 @@ def stream_row(input_file_name, address_tuple):
         header = next(reader)  # Skip header row
         logging.info(f"Skipped header row: {header}")
 
+        rows = list(reader)  # Read all rows into a list
+        
+        # Reverse the order of rows
+        rows.reverse()
+
         # use socket enumerated types to configure our socket object
         # Set our address family to (IPV4) for 'internet'
         # Set our socket type to UDP (datagram)
@@ -80,12 +85,12 @@ def stream_row(input_file_name, address_tuple):
         # and assign it to a variable named `sock_object`
         sock_object = socket.socket(ADDRESS_FAMILY, SOCKET_TYPE)
         
-        for row in reader:
+        for row in rows:
             MESSAGE = prepare_message_from_row(row)
             sock_object.sendto(MESSAGE, address_tuple)
             logging.info(f"Sent: {MESSAGE} on port {PORT}. Hit CTRL-c to stop.")
             time.sleep(3) # wait 3 seconds between messages
-
+            
 # ---------------------------------------------------------------------------
 # If this is the script we are running, then call some functions and execute code!
 # ---------------------------------------------------------------------------

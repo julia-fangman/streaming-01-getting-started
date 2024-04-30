@@ -12,6 +12,19 @@ You should have these downloaded and installed on your machine:
 1. VS Code Extension: Python
 1. Git (configured with user.name and user.email - the same email you use for GitHub)
 
+## Project 1:
+
+On P1, you'll see a series of transformations:
+
+Read from data file 0, convert, write to a csv file 1
+Read from csv file 1, convert, write to csv file 2
+Read from csv file 2, convert, write to csv file 3
+Read from csv file 3, convert, write to csv file 4
+
+When your code is complete your fourth output file should match the starting data (as a way to check your calculations are complete). 
+
+# To Begin: 
+
 ## Open Project Folder in VS Code
 
 ## Verify Installations / Update Default Python
